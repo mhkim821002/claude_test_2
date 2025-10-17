@@ -1,0 +1,165 @@
+.dancing-cat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.cat-wrapper {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center bottom;
+}
+
+.cat-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Dancing Animation */
+.cat-wrapper.dancing {
+  animation: dance 3s ease-in-out infinite;
+}
+
+@keyframes dance {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+  10% {
+    transform: translateX(-30px) translateY(-20px) rotate(-10deg) scale(1.05);
+  }
+  20% {
+    transform: translateX(30px) translateY(-40px) rotate(10deg) scale(1.1);
+  }
+  30% {
+    transform: translateX(-20px) translateY(-20px) rotate(-15deg) scale(1.05);
+  }
+  40% {
+    transform: translateX(20px) translateY(0) rotate(15deg) scale(1);
+  }
+  50% {
+    transform: translateX(0) translateY(-50px) rotate(0deg) scale(1.15);
+  }
+  60% {
+    transform: translateX(-25px) translateY(-30px) rotate(-20deg) scale(1.08);
+  }
+  70% {
+    transform: translateX(25px) translateY(-10px) rotate(20deg) scale(1.02);
+  }
+  80% {
+    transform: translateX(-15px) translateY(-25px) rotate(-10deg) scale(1.06);
+  }
+  90% {
+    transform: translateX(15px) translateY(-15px) rotate(10deg) scale(1.03);
+  }
+}
+
+/* Additional wiggle animation */
+.cat-wrapper.dancing .cat-image {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+}
+
+/* Control Button */
+.control-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.control-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.control-button:active {
+  transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cat-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .control-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  @keyframes dance {
+    0%, 100% {
+      transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+    }
+    10% {
+      transform: translateX(-20px) translateY(-15px) rotate(-10deg) scale(1.05);
+    }
+    20% {
+      transform: translateX(20px) translateY(-30px) rotate(10deg) scale(1.1);
+    }
+    30% {
+      transform: translateX(-15px) translateY(-15px) rotate(-15deg) scale(1.05);
+    }
+    40% {
+      transform: translateX(15px) translateY(0) rotate(15deg) scale(1);
+    }
+    50% {
+      transform: translateX(0) translateY(-35px) rotate(0deg) scale(1.15);
+    }
+    60% {
+      transform: translateX(-18px) translateY(-20px) rotate(-20deg) scale(1.08);
+    }
+    70% {
+      transform: translateX(18px) translateY(-8px) rotate(20deg) scale(1.02);
+    }
+    80% {
+      transform: translateX(-12px) translateY(-18px) rotate(-10deg) scale(1.06);
+    }
+    90% {
+      transform: translateX(12px) translateY(-12px) rotate(10deg) scale(1.03);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .cat-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .control-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .dancing-cat-container {
+    gap: 2rem;
+  }
+}
